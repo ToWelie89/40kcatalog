@@ -1,0 +1,81 @@
+.inset(@content: '', @left: 0px) {
+    margin-left: @left;
+    &:before {
+        content: @content;
+    }
+}
+
+body {
+    background-color: #eee;
+    #buttonContainer {
+        margin-left: 20px;
+        padding: 10px;
+    }
+    #imagePreview {
+        pointer-events: none;
+        display: none;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        max-width: 50%;
+        img {
+            width: 100%;
+        }
+    }
+    h3 {
+        margin-left: 20px;
+    }
+    #catalog {
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 20px;
+        border: 2px solid black;
+        border-radius: 8px;
+        box-shadow: 0 0 8px rgba(0,0,0,0.5);
+        .el {
+            margin-top: 1px;
+        }
+        .folder.collapsed {
+            display: none;
+        }
+        .el {
+            &.image {
+                span {
+                    cursor: pointer;
+                    color: rgb(100, 100, 236);
+
+                }
+            }
+            &[level="0"] {
+                .inset('', 0px);
+            }
+            &[level="1"] {
+                .inset('└─', 20px);
+            }
+            &[level="2"] {
+                .inset('└─', 40px);
+            }
+            &[level="3"] {
+                .inset('└─', 60px);
+            }
+            &[level="4"] {
+                .inset('└─', 80px);
+            }
+            &[level="5"] {
+                .inset('└─', 100px);
+            }
+            &[level="6"] {
+                .inset('└─', 120px);
+            }
+            &[level="7"] {
+                .inset('└─', 140px);
+            }
+            &[level="8"] {
+                .inset('└─', 160px);
+            }
+            &[level="9"] {
+                .inset('└─', 180px);
+            }
+        }
+    }
+}
