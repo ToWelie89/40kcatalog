@@ -82,27 +82,26 @@ const run = async () => {
             }
         })
     });
-    // TODO: fix correct images here
-    
-    /* document.querySelectorAll('.el.image span').forEach(imgLink => {
+    document.querySelectorAll('.el.image span').forEach(imgLink => {
         imgLink.addEventListener('mouseenter', ev => {
             const element = ev.target;
             const bbox = element.getBoundingClientRect();
 
             const parent = element.parentElement;
-            const imgPath = parent.getAttribute('path');
+            let imgPath = parent.getAttribute('path');
             console.log('imgPath', imgPath)
+            imgPath = imgPath.replace('D:\\Downloads\\3D prints\\MEGA FOLDER\\Printed40k\\', './pics/');
 
             document.querySelector('#imagePreview').style.top = Math.floor(bbox.top) + 'px';
             document.querySelector('#imagePreview').style.left = Math.floor(bbox.left + 30) + 'px';
-            document.querySelector('#imagePreview img').setAttribute('src', 'https://images.unsplash.com/photo-1586796314073-c9b40efb3d15?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c21hbGwlMjBkb2d8ZW58MHx8MHx8&w=1000&q=80');
+            document.querySelector('#imagePreview img').setAttribute('src', imgPath);
             document.querySelector('#imagePreview').style.display = 'block';
         });
         imgLink.addEventListener('mouseleave', ev => {
             document.querySelector('#imagePreview').style.display = 'none';
             document.querySelector('#imagePreview img').setAttribute('src', '');
         });
-    }); */
+    });
     document.getElementById('collapseAll').addEventListener('click', () => {
         document.querySelectorAll('.folder:not([id="0"])').forEach(folder => {
             folder.classList.add('collapsed');
